@@ -1,5 +1,6 @@
-package com.example.testrsttur.data
+package com.example.testrsttur.data.mapper
 
+import com.example.testrsttur.data.ApiException
 import retrofit2.Response
 import javax.inject.Inject
 

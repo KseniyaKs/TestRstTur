@@ -1,6 +1,9 @@
 package com.example.testrsttur.di
 
-import com.example.testrsttur.data.*
+import com.example.testrsttur.data.Api
+import com.example.testrsttur.data.MainPageRepositoryImpl
+import com.example.testrsttur.data.mapper.*
+import com.example.testrsttur.domain.MainPageRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +22,7 @@ class MainPageModule {
 
     @Provides
     @Singleton
-    fun provideManPageMapper(): MapperFromMainPageResponseToModel {
+    fun provideMainPageMapper(): MapperFromMainPageResponseToModel {
         return MapperFromMainPageResponseToModelImpl()
     }
 
@@ -28,8 +31,15 @@ class MainPageModule {
     fun provideMainPageRepository(
         api: Api,
         responseMapper: ResponseMapper,
-        mapper: MapperFromMainPageResponseToModel
+        mapper: MapperFromMainPageResponseToModel,
+        mapperFromBlogResponseToModel: MapperFromBlogResponseToModel
     ): MainPageRepository {
-        return MainPageRepositoryImpl(api,responseMapper, mapper)
+        return MainPageRepositoryImpl(api,responseMapper, mapper, mapperFromBlogResponseToModel)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBlogMapper(): MapperFromBlogResponseToModel {
+        return MapperFromBlogResponseToModelImpl()
     }
 }

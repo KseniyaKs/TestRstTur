@@ -1,6 +1,6 @@
 package com.example.testrsttur.presentation.list
 
-import com.example.testrsttur.data.MainPageItem
+import com.example.testrsttur.domain.entity.MainPageItem
 
 data class MainPageViewState(
     val mainPageList: List<MainPageItem> = emptyList()
@@ -8,4 +8,5 @@ data class MainPageViewState(
 
 sealed class MainPageEvent {
     object LoadMainPage : MainPageEvent()
+    data class ClickBlog(val blogId: Int) : MainPageEvent()
 }

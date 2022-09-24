@@ -27,7 +27,13 @@ data class ContentDto(
 
 data class TemplateDto(
     @SerializedName("card") val card: String,
-    @SerializedName("object") val objectTemplate: String,
+    @SerializedName("object") val objectTemplate: ContentType?,
     @SerializedName("size") val size: String,
     @SerializedName("direction") val direction: String,
 )
+
+enum class ContentType {
+    @SerializedName("object")OBJECT,
+    @SerializedName("tour")TOUR,
+    @SerializedName("blog")BLOG
+}

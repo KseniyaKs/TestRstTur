@@ -13,13 +13,7 @@ abstract class BaseViewModel<STATE : BaseViewState<*>, EVENT> : ViewModel() {
 
     protected fun setState(state: STATE) { _uiState.value = state }
 
-//    override fun startLoading() {
-//        super.startLoading()
-//        _uiState.value = BaseViewState.Loading
-//    }
-//
-//    override fun handleError(exception: Throwable) {
-//        super.handleError(exception)
-//        _uiState.value = BaseViewState.Error(exception)
-//    }
+    fun handleError(exception: Throwable) {
+        _uiState.value = BaseViewState.Error(exception)
+    }
 }
