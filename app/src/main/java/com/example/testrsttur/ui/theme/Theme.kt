@@ -3,6 +3,7 @@ package com.example.testrsttur.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Typography
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -10,10 +11,10 @@ import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
     primary = Nero,
-    primaryVariant = Nero,
+    primaryVariant = NightRider,
     secondary = Teal200,
     background = Gray90,
-    surface = Gray90
+    surface = Nero
 )
 
 private val LightColorPalette = lightColors(
@@ -35,6 +36,9 @@ private val LightColorPalette = lightColors(
 
 val TestRstTurColors: Colors
     @Composable get() = MaterialTheme.colors
+
+val TestRstTurTypography: Typography
+    @Composable get() = MaterialTheme.typography
 
 @Composable
 fun TestRstTurTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {

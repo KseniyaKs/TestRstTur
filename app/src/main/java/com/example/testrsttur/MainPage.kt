@@ -1,6 +1,8 @@
 package com.example.testrsttur
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Surface
@@ -10,17 +12,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.testrsttur.presentation.blog_detail.BlogDetailScreen
 import com.example.testrsttur.presentation.list.MainPageScreen
 import com.example.testrsttur.presentation.list.view.BottomNavType
 import com.example.testrsttur.presentation.list.view.BottomNavigationBar
+import com.example.testrsttur.ui.theme.TestRstTurColors
 
 
 @Composable
-fun MainAppContent() {
+fun MainAppContent(darkTheme: Boolean = isSystemInDarkTheme()) {
     val navController = rememberNavController()
     val homeScreenState = rememberSaveable { mutableStateOf(BottomNavType.HOME) }
 
@@ -28,8 +33,9 @@ fun MainAppContent() {
         navController = navController,
         startDestination = "home"
     ) {
-        composable("blog_detail/{blog_id}") {
-            BlogDetailScreen()
+        composable("blog_detail/{blog_id}",
+            arguments = listOf(navArgument("blog_id") { type = NavType.IntType })) {
+            BlogDetailScreen(navController = navController)
         }
 
         composable("home") {
@@ -38,7 +44,7 @@ fun MainAppContent() {
                     homeScreen = homeScreenState.value, modifier = Modifier.weight(1f),
                     navController = navController
                 )
-                BottomNavigationBar(homeScreenState = homeScreenState)
+                BottomNavigationBar(homeScreenState = homeScreenState, darkTheme = darkTheme)
             }
         }
 //
@@ -55,7 +61,7 @@ fun MainScreenContent(
     modifier: Modifier,
     navController: NavController
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.background(TestRstTurColors.primary)) {
         Crossfade(homeScreen) { screen ->
             Surface {
                 when (screen) {

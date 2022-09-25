@@ -2,6 +2,7 @@ package com.example.testrsttur.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color.Companion.Black
+import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -32,67 +33,68 @@ val DarkTypography = Typography(
     h1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = White,
+        color = Gray98,
         fontSize = 28.sp
     ),
     h2 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = White,
+        color = Gray98,
         fontSize = 21.sp
     ),
     h3 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.SemiBold,
-        color = White,
+        color = Gray98,
         fontSize = 18.sp
     ),
     h4 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = White,
+        color = Gray98,
         fontSize = 15.sp
     ),
     h5 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = White,
-        fontSize = 18.sp
+        color = Gray98,
+        fontSize = 20.sp
     ),
     h6 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = White,
+        color = Gray98,
         fontSize = 16.sp
     ),
     body1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Normal,
-        color = White,
+        color = Gray98,
         fontSize = 14.sp
     ),
     body2 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = White,
+        color = Gray98,
         fontSize = 14.sp
     ),
     subtitle1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = White,
+        color = Gray98,
         fontSize = 14.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W500,
-        color = White,
+        color = Gray98,
         fontSize = 14.sp
     ),
     caption = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 12.sp,
+        color = Gray98
     )
 )
 
@@ -101,67 +103,67 @@ val LightTypography = Typography(
     h1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = Black,
+        color = Gray5,
         fontSize = 28.sp
     ),
     h2 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = Black,
+        color = Gray5,
         fontSize = 21.sp
     ),
     h3 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.SemiBold,
-        color = Black,
+        color = Gray5,
         fontSize = 18.sp
     ),
     h4 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = Black,
+        color = Gray5,
         fontSize = 15.sp
     ),
     h5 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = Black,
-        fontSize = 18.sp
+        color = Gray5,
+        fontSize = 20.sp
     ),
     h6 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = Black,
+        color = Gray5,
         fontSize = 15.sp
     ),
     body1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Normal,
-        color = Black,
+        color = Gray5,
         fontSize = 14.sp
     ),
     body2 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Bold,
-        color = Black,
+        color = Gray5,
         fontSize = 14.sp
     ),
     subtitle1 = TextStyle(
         fontFamily = RobotoUiFonts,
         fontWeight = FontWeight.Medium,
-        color = Black,
+        color = Gray5,
         fontSize = 14.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W500,
-        color = Black,
+        color = Gray5,
         fontSize = 14.sp
     ),
     caption = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        color = Black,
+        color = Gray5,
         fontSize = 12.sp
     )
 )

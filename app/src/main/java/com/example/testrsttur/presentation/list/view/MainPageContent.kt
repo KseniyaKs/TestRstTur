@@ -1,5 +1,6 @@
 package com.example.testrsttur.presentation.list.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -24,6 +25,8 @@ import com.example.testrsttur.domain.entity.Button
 import com.example.testrsttur.domain.entity.ListButtons
 import com.example.testrsttur.presentation.list.MainPageViewModel
 import com.example.testrsttur.presentation.list.MainPageViewState
+import com.example.testrsttur.ui.theme.TestRstTurColors
+import com.example.testrsttur.ui.theme.TestRstTurTypography
 import com.example.testrsttur.widget.PicassoImage
 
 
@@ -32,7 +35,7 @@ fun MainPageContent(
     viewState: MainPageViewState,
     navController: NavController
 ) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.background(TestRstTurColors.primary)) {
         items(viewState.mainPageList) {
             when (it) {
                 is ListButtons -> {
@@ -114,15 +117,19 @@ fun ContentItem(blog: Blog, modifier: Modifier, blogClick: (blogId: Int) -> Unit
             blogClick(blog.id)
         }) {
         Card(shape = RoundedCornerShape(8.dp)) {
-            PicassoImage(blog.image.mediumSize)
+            PicassoImage(blog.image.mediumSize, modifier.height(104.dp))
         }
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = blog.title,
             maxLines = 1,
             fontWeight = FontWeight.Bold,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            style = TestRstTurTypography.h6
         )
-        Text(text = blog.subtitle, maxLines = 2, overflow = TextOverflow.Ellipsis)
+        Text(
+            text = blog.subtitle, maxLines = 2, overflow = TextOverflow.Ellipsis,
+            style = TestRstTurTypography.caption
+        )
     }
 }

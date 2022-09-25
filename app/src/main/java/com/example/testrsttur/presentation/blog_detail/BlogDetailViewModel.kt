@@ -15,7 +15,7 @@ class BlogDetailViewModel @Inject constructor(
     private val repository: BlogDetailRepository
 ) : BaseViewModel<BaseViewState<BlogDetailViewState>, BlogDetailEvent>() {
 
-    private val blogId = savedStateHandle.get<String>("blog_id")
+    private val blogId = savedStateHandle.get<Int>("blog_id")
 
     init {
         onTriggerEvent(BlogDetailEvent.LoadBlogDetail)
@@ -23,10 +23,10 @@ class BlogDetailViewModel @Inject constructor(
 
     private fun loadBlogDetail() {
         setState(BaseViewState.Loading)
-        viewModelScope.launch {
+        viewModelScope.launch(coroutineExceptionHandler) {
             blogId?.let {
-                setState(BaseViewState.Data(BlogDetailViewState(repository.loadBlogDetail(blogId.toInt()))))
-            }
+                setState(BaseViewState.Data(BlogDetailViewState(repository.loadBlogDetail(it))))
+            } ?: setState(BaseViewState.Empty)
         }
     }
 

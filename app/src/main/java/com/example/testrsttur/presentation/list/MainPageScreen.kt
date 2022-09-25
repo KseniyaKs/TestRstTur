@@ -30,18 +30,11 @@ fun MainPageScreen(
                 viewState = (uiState as BaseViewState.Data<MainPageViewState>).value,
                 navController = navController
             )
-            is BaseViewState.Empty -> {}//EmptyView(modifier = modifier)
-            is BaseViewState.Error -> {}//ErrorView(
-//            e = uiState.cast<BaseViewState.Error>().throwable,
-//            action = {
-//                viewModel.onTriggerEvent(CharactersEvent.LoadCharacters)
-//            }
-//        )
+            is BaseViewState.Empty -> {}
+            is BaseViewState.Error -> {}
             is BaseViewState.Loading -> LoadingView()
         }
     }
-
-
 
     LaunchedEffect(key1 = viewModel, block = {
         viewModel.onTriggerEvent(MainPageEvent.LoadMainPage)

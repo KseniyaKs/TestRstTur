@@ -15,7 +15,7 @@ class MainPageViewModel @Inject constructor(
 
     private fun loadMainPage() {
         setState(BaseViewState.Loading)
-        viewModelScope.launch {
+        viewModelScope.launch(coroutineExceptionHandler) {
             setState(BaseViewState.Data(MainPageViewState(repository.loadMainPage())))
         }
     }
@@ -23,7 +23,6 @@ class MainPageViewModel @Inject constructor(
     override fun onTriggerEvent(eventType: MainPageEvent) {
         when (eventType) {
             is MainPageEvent.LoadMainPage -> loadMainPage()
-            is MainPageEvent.ClickBlog -> TODO()
         }
     }
 }

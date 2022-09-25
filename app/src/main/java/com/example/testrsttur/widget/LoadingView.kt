@@ -1,6 +1,7 @@
 package com.example.testrsttur.widget
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -13,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.testrsttur.ui.theme.TestRstTurColors
 
 
 @Composable
@@ -22,7 +24,7 @@ fun LoadingView(modifier: Modifier = Modifier) {
         modifier = when (modifier == Modifier) {
             true -> Modifier.fillMaxSize()
             false -> modifier
-        }
+        }.background(TestRstTurColors.primary)
     ) {
         ProgressIndicator()
     }

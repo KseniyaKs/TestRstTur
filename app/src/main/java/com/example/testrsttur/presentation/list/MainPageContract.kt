@@ -8,5 +8,4 @@ data class MainPageViewState(
 
 sealed class MainPageEvent {
     object LoadMainPage : MainPageEvent()
-    data class ClickBlog(val blogId: Int) : MainPageEvent()
 }
